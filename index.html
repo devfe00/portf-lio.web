@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fe - Portfólio</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Efeito de Partículas -->
+  <div id="particles-js"></div>
+
+  <!-- Navbar -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#projetos">Projetos</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+<!-- Seção de Idioma -->
+    <div class="lang-select">
+      <button onclick="changeLanguage('pt')">Português</button>
+      <button onclick="changeLanguage('en')">English</button>
+    </div>
+
+<!-- Seção de Introdução -->
+<div class="content">
+  <div class="intro">
+    <!-- Primeira linha -->
+    <h2 class="typing-line">
+      <span class="typing-text">// Olá! Me chamo Fellipe.</span>
+      <span class="typing-text lang en">// Hello! My name is Fellipe.</span>
+    </h2>
+    
+    <!-- Segunda linha -->
+    <h2 class="typing-line">
+      <span class="typing-text">// E sou um Desenvolvedor Full Stack.</span>
+      <span class="typing-text lang en">// And I am a Full Stack Developer.</span>
+
+    </h2>
+    
+    <!-- Terceira linha -->
+    <h2 class="typing-line">
+      <span class="typing-text">// Gostaria de Saber mais sobre Mim?</span>
+      <span class="typing-text lang en">// Would you like to know more about me?</span>
+    </h2>
+  </div>
+
+  <h1>&lt;Dev_fe00&gt;</h1>
+  <p class="tag-line">// Um desenvolvedor que acredita na solução digital transformando o Mundo.</p>
+</div>
+
+
+
+    <!-- Seção Sobre -->
+    <section id="sobre" class="section">
+      <h2 class="section-title">Sobre</h2>
+      
+      <div class="sobre-container">
+          <div class="sobre-text">
+      <p>Sou um desenvolvedor Full Stack apaixonado por criar soluções web e mobile intuitivas e inovadoras. Combinando tecnologia e design, busco oferecer a melhor experiência ao usuário. Estou sempre aprendendo para entregar projetos inovadores e de alto desempenho. 🚀</p>
+    </div>
+        
+    <div class="profile-container">
+        <div class="profile-photo">
+            <!-- Foto de destaque -->
+            <img src="img/img.1.jpeg" alt="Sua foto" class="profile-img">
+        </div>
+    </div>
+</div>
+
+<div class="skills-container">
+    <h3>Habilidades</h3>
+    <div class="skills-grid">
+        <!-- HTML -->
+        <div class="skill-item">
+            <div class="skill-icon html-icon">
+                <i class="fab fa-html5"></i>
+            </div>
+            <p>HTML</p>
+            <div class="skill-level">
+                <span class="dot filled"></span>
+                <span class="dot filled"></span>
+                <span class="dot filled"></span>
+                <span class="dot filled"></span>
+                <span class="dot filled"></span>
+            </div>
+        </div>
+        
+        <!-- CSS -->
+        <div class="skill-item">
+            <div class="skill-icon css-icon">
+                <i class="fab fa-css3-alt"></i>
+            </div>
+            <p>CSS</p>
+            <div class="skill-level">
+                <span class="dot filled"></span>
+                <span class="dot filled"></span>
+                <span class="dot filled"></span>
+                <span class="dot filled"></span>
+                <span class="dot filled"></span>
+            </div>
+        </div>
+        
+        <!-- JavaScript -->
+        <div class="skill-item">
+            <div class="skill-icon js-icon">
+                <i class="fab fa-js"></i>
+            </div>
+            <p>JavaScript</p>
+            <div class="skill-level">
+                <span class="dot filled"></span>
+                <span class="dot filled"></span>
+                <span class="dot filled"></span>
+                <span class="dot filled"></span>
+                <span class="dot filled"></span>
+            </div>
+        </div>
+        
+        <!-- React -->
+        <div class="skill-item">
+            <div class="skill-icon react-icon">
+                <i class="fab fa-react"></i>
+            </div>
+            <p>React & Components</p>
+            <div class="skill-level">
+                <span class="dot filled"></span>
+                <span class="dot filled"></span>
+                <span class="dot filled"></span>
+                <span class="dot filled"></span>
+                <span class="dot filled"></span>
+            </div>
+        </div>
+        
+        <!-- Habilidades -->
+        <div class="skill-item">
+          <div class="skill-icon typescript-icon">
+              <i class="fas fa-code"></i> <!-- Ícone alternativo -->
+          </div>
+          <p>TypeScript</p>
+          <div class="skill-level">
+              <span class="dot filled"></span>
+              <span class="dot filled"></span>
+              <span class="dot filled"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+          </div>
+      </div>
+      
+        
+        <div class="skill-item">
+            <div class="skill-icon node-icon">
+                <i class="fab fa-node-js"></i>
+            </div>
+            <p>Node.js</p>
+            <div class="skill-level">
+                <span class="dot filled"></span>
+                <span class="dot filled"></span>
+                <span class="dot filled"></span>
+                <span class="dot filled"></span>
+                <span class="dot filled"></span>
+            </div>
+        </div>
+    </div>
+</div>
+</section>   
+
+
+    <!-- Seção de Projetos -->
+    <section id="projetos" class="section">
+      <h2 class="section-title">Projetos</h2>
+      
+      <div class="projetos-grid">
+
+        <div class="projeto-card" onclick="window.location.href='https://peregrinosout.com'">
+              <div class="projeto-content">
+                <img src="img/img2.png" alt="Imagem do Projeto" class="projeto-img">
+                  <h3>Projeto Web - Ecommerce</h3>
+                  <p>Concluído</p>
+                  <div class="projeto-tags">
+                      <span class="tag">HTML</span>
+                      <span class="tag">CSS</span>
+                      <span class="tag">JavaScript</span>
+                  </div>
+              </div>
+          </div>
+          
+          <div class="projeto-card" onclick="window.location.href='#projeto-app'">
+              <div class="projeto-content">
+                  <h3>Projeto App</h3>
+                  <p>Em Andamento</p>
+                  <div class="projeto-tags">
+                      <span class="tag">React Native</span>
+                      <span class="tag">Node.js</span>
+                  </div>
+              </div>
+          </div>
+          
+          <div class="projeto-card" onclick="window.location.href='#projeto-dashboard'">
+              <div class="projeto-content">
+                  <h3>Dashboard Analytics</h3>
+                  <p>Em Andamento</p>
+                  <div class="projeto-tags">
+                      <span class="tag">React</span>
+                      <span class="tag">TypeScript</span>
+                      <span class="tag">ChartJS</span>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+    <!-- Seção de Contato -->
+    <section id="contato" class="section">
+      <h2 class="section-title">Contato</h2>
+      
+      <div class="contato-content">
+          <p>Entre em contato comigo via email: fellipe.silva25@hotmail.com</p>
+          
+          <div class="social-icons">
+              <a href="https://github.com/devfe00" target="_blank" class="social-icon github">
+                  <i class="fab fa-github"></i>
+              </a>
+              <a href="https://www.linkedin.com/in/fellipe-s-ab22b1255/" target="_blank" class="social-icon linkedin">
+                  <i class="fab fa-linkedin"></i>
+              </a>
+          </div>
+      </div>
+  </section>
+
+  <footer>
+    <p>&copy; Todos seus Direitos Reservados (2025)</p>
+  </footer>
+
+  <!-- Particles.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+  <script src="script.js"></script>
+
+</body>
+</html>
+
