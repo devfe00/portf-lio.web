@@ -1,2 +1,2 @@
 # portf-lio.web
-Portfólio de projetos de desenvolvimento, mostrando como crio sites e apps dinâmicos e interativos. Focado em transformar ideias em interfaces funcionais e visuais, com HTML, CSS e JavaScript. Brevemente, terei projetos em Swift para expandir ainda mais minhas habilidades!
+portfólio de desenvolvimento com projetos web e mobile dinâmicos e interativos. Do front ao back-end, uso TypeScript, React, Node.js e bancos de dados para criar soluções completas. Em breve, também trarei projetos em Swift.

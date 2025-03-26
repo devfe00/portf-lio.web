@@ -7,13 +7,31 @@ body {
   overflow-x: hidden;
 }
 
+.profile-image {
+  position: absolute;
+  top: 20px; 
+  left: 20px; 
+  width: 50px; 
+  height: 50px; 
+  border-radius: 50%; 
+  object-fit: cover; 
+  z-index: 10;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-image:hover {
+  transform: scale(1.2) rotate(5deg);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+
 /* Fundo de partículas cobrindo o site inteiro */
 #particles-js {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw; /* Usa viewport width */
-  height: 100vh; /* Usa viewport height */
+  width: 100vw; 
+  height: 100vh; 
   z-index: -1;
   pointer-events: none;
 }
@@ -21,18 +39,18 @@ body {
 /* Navbar */
 header {
   position: fixed;
-  top: -50px; /* Inicialmente escondido acima da tela */
-  left: 0; /* Garante que o header fique alinhado à esquerda */
-  right: 0; /* Garante que o header ocupe toda a largura da tela */
-  width: 100%; /* Ocupa toda a largura */
+  top: -50px; 
+  left: 0; 
+  right: 0; 
+  width: 100%; 
   background: rgba(7, 7, 7, 0.5);
   padding: 0;
-  height: 30px; /* Ajuste a altura conforme necessário */
+  height: 30px; 
   z-index: 10;
   display: flex;
   align-items: center;
-  justify-content: center; /* Centraliza o conteúdo horizontalmente */
-  transition: top 0.3s ease; /* Transição suave ao aparecer */
+  justify-content: center; 
+  transition: top 0.3s ease; 
 }
 
 /* Links de navegação */
@@ -92,7 +110,9 @@ h1 {
 
 .tag-line {
   color: #bfd327;
-  margin-top: 10px;
+  margin-top: 40px;
+  display: block;
+  font-size: 1.2rem;
 }
 
 .code-comment {
@@ -447,9 +467,9 @@ footer {
 
 /* IMG projetos */
 .projeto-img {
-  width: 150px; /* Ajuste o tamanho conforme necessário */
+  width: 150px; 
   height: auto;
-  margin-bottom: 5px; /* Adiciona um espaço abaixo da imagem */
+  margin-bottom: 5px; 
 }
 
 .projeto-img {
@@ -460,20 +480,7 @@ footer {
 
 .projeto-content {
   display: flex;
-  justify-content: center; /* Alinha horizontalmente */
-  align-items: center; /* Alinha verticalmente */
-  flex-direction: column; /* Garante que o conteúdo dentro do card seja empilhado em coluna */
-}
-
-/* Idioma Ingles */
-.lang {
-  display: none;
-}
-
-.lang.pt {
-  display: block;
-}
-
-.lang.en {
-  display: none;
+  justify-content: center; 
+  align-items: center; 
+  flex-direction: column; 
 }

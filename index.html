@@ -1,16 +1,23 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fe - Portfólio</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Fe - Portfólio</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link rel="icon" href="img/favicon_io/favicon.ico" type="image/x-icon">
+        <link rel="apple-touch-icon" sizes="180x180" href="img/favicon_io/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="img/favicon_io/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="img/favicon_io/favicon-16x16.png">
+      </head>
 <body>
+ 
+    <a href="https://www.linkedin.com/in/fellipe-s-ab22b1255/" target="_blank">
+        <img src="img/3.jpg" alt="Perfil" class="profile-image">
+    </a>
 
-  <!-- Efeito de Partículas -->
-  <div id="particles-js"></div>
+      <div id="particles-js"></div>
 
   <!-- Navbar -->
   <header>
@@ -25,32 +32,22 @@
 
   <main>
 
-<!-- Seção de Idioma -->
-    <div class="lang-select">
-      <button onclick="changeLanguage('pt')">Português</button>
-      <button onclick="changeLanguage('en')">English</button>
-    </div>
+    
 
 <!-- Seção de Introdução -->
 <div class="content">
   <div class="intro">
-    <!-- Primeira linha -->
+
     <h2 class="typing-line">
       <span class="typing-text">// Olá! Me chamo Fellipe.</span>
-      <span class="typing-text lang en">// Hello! My name is Fellipe.</span>
     </h2>
     
-    <!-- Segunda linha -->
     <h2 class="typing-line">
       <span class="typing-text">// E sou um Desenvolvedor Full Stack.</span>
-      <span class="typing-text lang en">// And I am a Full Stack Developer.</span>
-
     </h2>
     
-    <!-- Terceira linha -->
     <h2 class="typing-line">
       <span class="typing-text">// Gostaria de Saber mais sobre Mim?</span>
-      <span class="typing-text lang en">// Would you like to know more about me?</span>
     </h2>
   </div>
 
@@ -62,12 +59,13 @@
 
     <!-- Seção Sobre -->
     <section id="sobre" class="section">
-      <h2 class="section-title">Sobre</h2>
-      
-      <div class="sobre-container">
-          <div class="sobre-text">
-      <p>Sou um desenvolvedor Full Stack apaixonado por criar soluções web e mobile intuitivas e inovadoras. Combinando tecnologia e design, busco oferecer a melhor experiência ao usuário. Estou sempre aprendendo para entregar projetos inovadores e de alto desempenho. 🚀</p>
-    </div>
+        <h2 class="section-title">Sobre</h2>
+        
+        <div class="sobre-container">
+        <div class="sobre-text">
+            <p>Desenvolvedor Full Stack apaixonado por criar soluções web e mobile intuitivas e inovadoras.</p>
+            <p>Sempre aprendendo para entregar projetos de alto desempenho. 🚀</p>
+        </div>
         
     <div class="profile-container">
         <div class="profile-photo">
@@ -143,7 +141,7 @@
         <!-- Habilidades -->
         <div class="skill-item">
           <div class="skill-icon typescript-icon">
-              <i class="fas fa-code"></i> <!-- Ícone alternativo -->
+              <i class="fas fa-code"></i> 
           </div>
           <p>TypeScript</p>
           <div class="skill-level">
@@ -193,10 +191,10 @@
               </div>
           </div>
           
-          <div class="projeto-card" onclick="window.location.href='#projeto-app'">
-              <div class="projeto-content">
+          <div class="projeto-card" onclick="window.location.href='https://registrotarefas-iycuedooj-devfes-projects.vercel.app'">
+            <div class="projeto-content">
                   <h3>Projeto App</h3>
-                  <p>Em Andamento</p>
+                  <p>Concluído</p>
                   <div class="projeto-tags">
                       <span class="tag">React Native</span>
                       <span class="tag">Node.js</span>
@@ -204,14 +202,14 @@
               </div>
           </div>
           
-          <div class="projeto-card" onclick="window.location.href='#projeto-dashboard'">
-              <div class="projeto-content">
-                  <h3>Dashboard Analytics</h3>
-                  <p>Em Andamento</p>
+          <div class="projeto-card" onclick="window.location.href='https://fhtech.vercel.app'">
+            <div class="projeto-content">
+                  <h3>FH Tech</h3>
+                  <p>Concluído</p>
                   <div class="projeto-tags">
-                      <span class="tag">React</span>
-                      <span class="tag">TypeScript</span>
-                      <span class="tag">ChartJS</span>
+                      <span class="tag">Next.js</span>
+                      <span class="tag">Tailwind CSS</span>
+                      <span class="tag">Firebase</span>
                   </div>
               </div>
           </div>
