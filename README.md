@@ -1,2 +1,5 @@
 # portf-lio.web
-portfólio de desenvolvimento com projetos web e mobile dinâmicos e interativos. Do front ao back-end, uso TypeScript, React, Node.js e bancos de dados para criar soluções completas. Em breve, também trarei projetos em Swift.
+
+- Bem Vindos ao meu Portfolio:
+
+desenvolvedor Full Stack, utilizando tecnologias como java, javascript, typesript, react, node.js, python, swift, tailwind css, express.js, next.js para construir soluções completas. Possuo conhecimento em bancos de dados MySQL, Oracle e MongoDB, assegurando a integridade e a performance dos dados. Aqui você vai ver meus projetos web e mobile iOS, onde coloco tudo isso em prática.

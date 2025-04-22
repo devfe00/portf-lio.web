@@ -4,244 +4,1323 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Fe - Portfólio</title>
-        <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
         <link rel="icon" href="img/favicon_io/favicon.ico" type="image/x-icon">
         <link rel="apple-touch-icon" sizes="180x180" href="img/favicon_io/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="img/favicon_io/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="img/favicon_io/favicon-16x16.png">
-      </head>
+
+        <style>
+            :root {
+                --primary-color: #56ccf2;
+                --secondary-color: #26da32;
+                --accent-color: #bfd327;
+                --bg-color: #121212;
+                --card-bg: rgba(0, 0, 0, 0.5);
+                --text-color: #ffffff;
+                --text-muted: #aaaaaa;
+                --transition: all 0.3s ease;
+            }
+            
+            * {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+            
+            body {
+                margin: 0;
+                padding: 0;
+                font-family: 'Courier New', monospace;
+                background-color: var(--bg-color);
+                color: var(--text-color);
+                overflow-x: hidden;
+                line-height: 1.6;
+                scroll-behavior: smooth;
+            }
+              
+            .profile-image {
+                position: fixed;
+                top: 20px; 
+                left: 20px; 
+                width: 50px; 
+                height: 50px; 
+                border-radius: 50%; 
+                object-fit: cover; 
+                z-index: 100;
+                transition: var(--transition);
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            }
+              
+            .profile-image:hover {
+                transform: scale(1.2) rotate(5deg);
+                box-shadow: 0 4px 15px rgba(86, 204, 242, 0.5);
+            }
+              
+            #particles-js {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw; 
+                height: 100vh; 
+                z-index: -1;
+                pointer-events: none;
+            }
+              
+            header {
+                position: fixed;
+                top: 0;
+                left: 0; 
+                right: 0; 
+                width: 100%; 
+                background: rgba(7, 7, 7, 0.8);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                padding: 15px 0;
+                z-index: 50;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: transform 0.3s ease;
+                transform: translateY(-100%);
+                box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+            }
+            
+            header.visible {
+                transform: translateY(0);
+            }
+              
+            nav ul {
+                list-style: none;
+                text-align: center;
+                padding: 0;
+                display: flex;
+                gap: 30px;
+            }
+              
+            nav ul li {
+                display: inline;
+            }
+              
+            nav ul li a {
+                color: var(--text-color);
+                text-decoration: none;
+                font-size: 1.2rem;
+                position: relative;
+                padding: 5px 0;
+                transition: var(--transition);
+            }
+            
+            nav ul li a::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 0;
+                height: 2px;
+                background-color: var(--secondary-color);
+                transition: var(--transition);
+            }
+              
+            nav ul li a:hover {
+                color: var(--secondary-color);
+            }
+            
+            nav ul li a:hover::after {
+                width: 100%;
+            }
+              
+            html {
+                scroll-behavior: smooth;
+                scroll-padding-top: 70px;
+            }
+              
+            .content {
+                position: relative;
+                padding: 20px;
+                z-index: 2;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+                text-align: center;
+            }
+              
+            .intro {
+                background-color: rgba(18, 18, 18, 0.85);
+                padding: 30px;
+                border-radius: 10px;
+                max-width: 500px;
+                margin-bottom: 50px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+                border: 1px solid rgba(86, 204, 242, 0.2);
+            }
+              
+            h1 {
+                font-size: 4.5rem;
+                margin-bottom: 10px;
+                color: var(--primary-color);
+                text-shadow: 0 2px 10px rgba(86, 204, 242, 0.3);
+                letter-spacing: 2px;
+            }
+              
+            .tag-line {
+                color: var(--accent-color);
+                margin-top: 20px;
+                display: block;
+                font-size: 1.3rem;
+                max-width: 600px;
+                text-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
+            }
+              
+            .code-comment {
+                color: #7FFF00;
+            }
+              
+            section {
+                padding: 80px 20px;
+                text-align: center;
+                scroll-margin-top: 70px;
+            }
+              
+            #sobre, #projetos, #contato {
+                margin-top: 0;
+            }
+              
+            h2 {
+                font-size: 2.5rem;
+                color: var(--primary-color);
+                margin-bottom: 30px;
+            }
+              
+            .project {
+                background: rgba(255, 255, 255, 0.1);
+                padding: 15px;
+                margin: 10px auto;
+                width: 80%;
+                max-width: 600px;
+                border-radius: 5px;
+            }
+              
+            footer {
+                text-align: center;
+                padding: 10px 0;
+                background: transparent;
+                font-size: 14px;
+                margin-top: 50px;
+            }
+              
+            .section {
+                padding: 100px 20px;
+                margin: 0;
+                text-align: center;
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+              
+            .section-title {
+                color: var(--primary-color);
+                text-align: center;
+                font-size: 3rem;
+                margin-bottom: 3rem;
+                position: relative;
+                display: inline-block;
+                padding-bottom: 15px;
+            }
+            
+            .section-title::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 25%;
+                width: 50%;
+                height: 3px;
+                background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+            }
+              
+            .sobre-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 3rem;
+                flex-direction: column;
+                text-align: center;
+                margin-bottom: 4rem;
+                max-width: 1000px;
+                margin: 0 auto 4rem;
+            }
+              
+            .sobre-text {
+                flex: 1;
+                color: var(--text-color);
+                font-size: 1.1rem;
+                line-height: 1.8;
+            }
+            
+            .sobre-text p {
+                margin-bottom: 15px;
+            }
+              
+            .profile-container {
+                display: flex;
+                justify-content: center;
+                width: 200px;
+                margin: 20px auto;
+            }
+              
+            .profile-photo {
+                width: 180px;
+                height: 180px;
+                border-radius: 50%;
+                overflow: hidden;
+                border: 3px solid var(--primary-color);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+                transition: var(--transition);
+            }
+            
+            .profile-photo:hover {
+                transform: scale(1.05);
+                border-color: var(--secondary-color);
+            }
+              
+            .profile-img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: var(--transition);
+            }
+            
+            .profile-img:hover {
+                transform: scale(1.1);
+            }
+              
+            .skills-container {
+                margin: 40px auto 0;
+                max-width: 1200px;
+            }
+              
+            .skills-container h3 {
+                color: var(--primary-color);
+                text-align: center;
+                margin-bottom: 2rem;
+                font-size: 2.2rem;
+            }
+              
+            .skills-grid {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 2rem;
+            }
+              
+            .skill-item {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 1.5rem;
+                background-color: rgba(0, 0, 0, 0.5);
+                border-radius: 12px;
+                transition: var(--transition);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                width: 150px;
+            }
+              
+            .skill-item:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 10px 25px rgba(86, 204, 242, 0.2);
+                border-color: rgba(86, 204, 242, 0.3);
+            }
+              
+            .skill-icon {
+                width: 80px;
+                height: 80px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50%;
+                margin-bottom: 1rem;
+                font-size: 2.8rem;
+                transition: var(--transition);
+            }
+              
+            .skill-icon:hover{
+                transform: scale(1.15) rotate(5deg);
+                text-shadow: 0 0 15px currentColor;
+            }
+              
+            .skill-item p {
+                color: var(--text-color);
+                margin: 0.5rem 0;
+                font-size: 1rem;
+                font-weight: 600;
+            }
+              
+            .skill-level {
+                display: flex;
+                gap: 4px;
+                margin-top: 5px;
+            }
+              
+            .dot {
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                background-color: #333;
+                transition: var(--transition);
+            }
+              
+            .dot.filled {
+                background-color: var(--secondary-color);
+                box-shadow: 0 0 5px var(--secondary-color);
+            }
+              
+            /* icon cores */
+            .html-icon { color: #e44d26; }
+            .css-icon { color: #264de4; }
+            .js-icon { color: #f7df1e; }
+            .react-icon { color: #61dafb; }
+            .typescript-icon { color: #007acc; }
+            .node-icon { color: #68a063; }
+            
+            /* CARROSSEL MELHORADO */
+            .projetos-container {
+                margin: 0 auto;
+                max-width: 1200px;
+                position: relative;
+                padding: 0 50px;
+            }
+            
+            .carousel-nav {
+                display: flex;
+                justify-content: center;
+                margin-bottom: 30px;
+                gap: 20px;
+            }
+            
+            .carousel-button {
+                background-color: rgba(86, 204, 242, 0.2);
+                color: var(--primary-color);
+                border: none;
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.5rem;
+                cursor: pointer;
+                transition: var(--transition);
+                z-index: 5;
+            }
+            
+            .carousel-button:hover {
+                background-color: rgba(86, 204, 242, 0.4);
+                transform: scale(1.1);
+            }
+            
+            .projetos-grid {
+                display: flex;
+                gap: 20px;
+                overflow: hidden;
+                scroll-behavior: smooth;
+                position: relative;
+                margin: 0 auto;
+                width: 100%;
+                padding: 20px 0;
+            }
+            
+            .projetos-track {
+                display: flex;
+                gap: 20px;
+                transition: transform 0.5s ease;
+            }
+            
+            .projeto-card {
+                flex: 0 0 300px;
+                background-color: var(--card-bg);
+                border-radius: 15px;
+                overflow: hidden;
+                transition: var(--transition);
+                cursor: pointer;
+                min-height: 350px;
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                position: relative;
+                transform-origin: center;
+            }
+
+            .projeto-card:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+                border-color: rgba(86, 204, 242, 0.3);
+            }
+
+            .projeto-content {
+                padding: 1.5rem;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                height: 100%;
+            }
+          
+            .projeto-card h3 {
+                color: var(--text-color);
+                font-size: 1.3rem;
+                margin: 15px 0;
+                transition: var(--transition);
+            }
+            
+            .projeto-card:hover h3 {
+                color: var(--primary-color);
+            }
+
+            .projeto-card p {
+                color: var(--text-muted);
+                font-size: 0.95rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .projeto-tags {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px;
+                margin-top: auto;
+                justify-content: center;
+            }
+
+            .tag {
+                background-color: rgba(86, 204, 242, 0.15);
+                color: var(--primary-color);
+                padding: 0.4rem 0.8rem;
+                border-radius: 20px;
+                font-size: 0.85rem;
+                transition: var(--transition);
+                border: 1px solid rgba(86, 204, 242, 0.1);
+            }
+            
+            .projeto-card:hover .tag {
+                background-color: rgba(86, 204, 242, 0.25);
+                transform: scale(1.05);
+            }
+          
+            .carousel-indicators {
+                display: flex;
+                justify-content: center;
+                gap: 10px;
+                margin-top: 20px;
+            }
+            
+            .indicator {
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+                background-color: rgba(255, 255, 255, 0.3);
+                cursor: pointer;
+                transition: var(--transition);
+            }
+            
+            .indicator.active {
+                background-color: var(--primary-color);
+                transform: scale(1.2);
+                box-shadow: 0 0 10px var(--primary-color);
+            }
+
+            .projeto-img {
+                width: 160px;
+                height: 160px;
+                border-radius: 8px;
+                object-fit: cover;
+                margin-bottom: 1rem;
+                transition: var(--transition);
+                border: 2px solid rgba(255, 255, 255, 0.1);
+            }
+            
+            .projeto-card:hover .projeto-img {
+                transform: scale(1.05);
+                border-color: var(--primary-color);
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            }
+
+            .contato-content {
+                text-align: center;
+                color: var(--text-color);
+                max-width: 600px;
+                margin: 0 auto;
+            }
+            
+            .contato-content p {
+                font-size: 1.2rem;
+                margin-bottom: 2rem;
+            }
+              
+            .social-icons {
+                display: flex;
+                justify-content: center;
+                gap: 2rem;
+                margin-top: 2rem;
+            }
+              
+            .social-icon {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 60px;
+                height: 60px;
+                background-color: rgba(255, 255, 255, 0.1);
+                border-radius: 50%;
+                color: var(--text-color);
+                font-size: 1.8rem;
+                transition: var(--transition);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+            }
+              
+            .social-icon:hover {
+                transform: translateY(-8px) scale(1.1);
+            }
+              
+            .github:hover {
+                background-color: #333;
+                color: white;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+            }
+              
+            .linkedin:hover {
+                background-color: #0077b5;
+                color: white;
+                box-shadow: 0 10px 20px rgba(0, 119, 181, 0.4);
+            }
+            
+            .email-btn {
+                display: inline-block;
+                background: linear-gradient(45deg, var(--primary-color), #4361ee);
+                color: white;
+                padding: 12px 24px;
+                border-radius: 30px;
+                text-decoration: none;
+                font-weight: bold;
+                margin-top: 20px;
+                transition: var(--transition);
+                border: none;
+                cursor: pointer;
+                box-shadow: 0 4px 15px rgba(86, 204, 242, 0.3);
+            }
+            
+            .email-btn:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 20px rgba(86, 204, 242, 0.4);
+            }
+              
+            @media (min-width: 768px) {
+                .sobre-container {
+                    flex-direction: row;
+                }
+                
+                .profile-container {
+                    margin: 0;
+                }
+            }
+            
+            @media (max-width: 768px) {
+                .sobre-container {
+                    flex-direction: column-reverse;
+                    text-align: center;
+                    gap: 2rem;
+                }
+                
+                .skills-grid {
+                    gap: 1rem;
+                }
+                
+                .skill-item {
+                    width: 120px;
+                    padding: 1rem;
+                }
+                
+                .projetos-container {
+                    padding: 0 20px;
+                }
+                
+                .projeto-card {
+                    flex: 0 0 260px;
+                    min-height: 320px;
+                }
+                
+                .projeto-img {
+                    width: 120px;
+                    height: 120px;
+                }
+                
+                .carousel-button {
+                    width: 40px;
+                    height: 40px;
+                    font-size: 1.2rem;
+                }
+                
+                h1 {
+                    font-size: 3rem;
+                }
+                
+                .section-title {
+                    font-size: 2.2rem;
+                }
+              }
+              
+              .intro {
+                padding: 25px;
+                background-color: rgba(18, 18, 18, 0.9);
+                border-radius: 12px;
+                font-family: 'Fira Code', 'Courier New', monospace;
+              }
+              
+              .typing-line {
+                font-size: 20px;
+                color: #00FF00;
+                margin: 18px 0;
+                font-weight: 500;
+                position: relative;
+              }
+              
+              .typing-text {
+                display: inline-block;
+                overflow: hidden;
+                white-space: nowrap;
+                border-right: 4px solid transparent;
+                width: 0;
+              }
+              
+              .typing-line:nth-child(1) .typing-text {
+                animation: typing1 11s infinite;
+              }
+              
+              .typing-line:nth-child(2) .typing-text {
+                animation: typing2 11s infinite;
+              }
+              
+              .typing-line:nth-child(3) .typing-text {
+                animation: typing3 11s infinite;
+              }
+              
+              @keyframes typing1 {
+                0%, 100% { width: 0; border-right-color: #00FF00; }
+                5% { width: 100%; border-right-color: #00FF00; }
+                15%, 85% { width: 100%; border-right-color: transparent; }
+                90% { width: 0; border-right-color: transparent; }
+            }
+            
+            @keyframes typing2 {
+                0%, 15% { width: 0; border-right-color: transparent; }
+                20% { width: 0; border-right-color: #00FF00; }
+                25% { width: 100%; border-right-color: #00FF00; }
+                30%, 85% { width: 100%; border-right-color: transparent; }
+                90% { width: 0; border-right-color: transparent; }
+            }
+            
+            @keyframes typing3 {
+                0%, 30% { width: 0; border-right-color: transparent; }
+                35% { width: 0; border-right-color: #00FF00; }
+                40% { width: 100%; border-right-color: #00FF00; }
+                45%, 85% { width: 100%; border-right-color: transparent; }
+                90% { width: 0; border-right-color: transparent; }
+            }
+              
+            @media (max-width: 480px) {
+                .intro {
+                    padding: 15px;
+                }
+                
+                .typing-line {
+                    font-size: 14px;
+                    margin: 12px 0;
+                }
+                
+                .content {
+                    padding: 10px;
+                }
+            }
+
+              .scroll-top {
+                position: fixed;
+                bottom: 30px;
+                right: 30px;
+                width: 50px;
+                height: 50px;
+                background-color: var(--primary-color);
+                color: white;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.5rem;
+                cursor: pointer;
+                transition: var(--transition);
+                opacity: 0;
+                visibility: hidden;
+                z-index: 100;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+              }
+              
+              .scroll-top.active {
+                opacity: 1;
+                visibility: visible;
+              }
+              
+              .scroll-top:hover {
+                background-color: var(--secondary-color);
+                transform: translateY(-5px);
+              }
+              
+              .loading-overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: var(--bg-color);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 1000;
+                transition: opacity 0.5s ease, visibility 0.5s ease;
+              }
+              
+              .loading-overlay.fade-out {
+                opacity: 0;
+                visibility: hidden;
+              }
+              
+              .loader {
+                width: 50px;
+                height: 50px;
+                border: 5px solid rgba(255, 255, 255, 0.1);
+                border-top-color: var(--primary-color);
+                border-radius: 50%;
+                animation: spin 1s infinite linear;
+              }
+              
+              @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+              }
+              
+              .fade-in {
+                opacity: 0;
+                transform: translateY(30px);
+                transition: opacity 0.8s ease, transform 0.8s ease;
+              }
+              
+              .fade-in.visible {
+                opacity: 1;
+                transform: translateY(0);
+              }
+              
+        </style>
+    </head>
 <body>
- 
+    <div class="loading-overlay">
+        <div class="loader"></div>
+    </div>
+
     <a href="https://www.linkedin.com/in/fellipe-s-ab22b1255/" target="_blank">
         <img src="img/3.jpg" alt="Perfil" class="profile-image">
     </a>
 
-      <div id="particles-js"></div>
+    <div id="particles-js"></div>
 
-  <!-- Navbar -->
-  <header>
-    <nav>
-      <ul>
-        <li><a href="#sobre">Sobre</a></li>
-        <li><a href="#projetos">Projetos</a></li>
-        <li><a href="#contato">Contato</a></li>
-      </ul>
-    </nav>
-  </header>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#projetos">Projetos</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <main>
-
-    
-
-<!-- Seção de Introdução -->
-<div class="content">
-  <div class="intro">
-
-    <h2 class="typing-line">
-      <span class="typing-text">// Olá! Me chamo Fellipe.</span>
-    </h2>
-    
-    <h2 class="typing-line">
-      <span class="typing-text">// E sou um Desenvolvedor Full Stack.</span>
-    </h2>
-    
-    <h2 class="typing-line">
-      <span class="typing-text">// Gostaria de Saber mais sobre Mim?</span>
-    </h2>
-  </div>
-
-  <h1>&lt;Dev_fe00&gt;</h1>
-  <p class="tag-line">// Um desenvolvedor que acredita na solução digital transformando o Mundo.</p>
-</div>
-
-
-
-    <!-- Seção Sobre -->
-    <section id="sobre" class="section">
-        <h2 class="section-title">Sobre</h2>
-        
-        <div class="sobre-container">
-        <div class="sobre-text">
-            <p>Desenvolvedor Full Stack apaixonado por criar soluções web e mobile intuitivas e inovadoras.</p>
-            <p>Sempre aprendendo para entregar projetos de alto desempenho. 🚀</p>
-        </div>
-        
-    <div class="profile-container">
-        <div class="profile-photo">
-            <!-- Foto de destaque -->
-            <img src="img/img.1.jpeg" alt="Sua foto" class="profile-img">
-        </div>
+    <div class="scroll-top">
+        <i class="fas fa-arrow-up"></i>
     </div>
-</div>
 
-<div class="skills-container">
-    <h3>Habilidades</h3>
-    <div class="skills-grid">
-        <!-- HTML -->
-        <div class="skill-item">
-            <div class="skill-icon html-icon">
-                <i class="fab fa-html5"></i>
+    <main>
+        <div class="content">
+            <div class="intro animate__animated animate__fadeIn">
+                <h2 class="typing-line">
+                    <span class="typing-text">// Olá! Me chamo Fellipe.</span>
+                </h2>
+                
+                <h2 class="typing-line">
+                    <span class="typing-text">// E sou um Desenvolvedor Full Stack.</span>
+                </h2>
+                
+                <h2 class="typing-line">
+                    <span class="typing-text">// Gostaria de Saber mais sobre Mim?</span>
+                </h2>
             </div>
-            <p>HTML</p>
-            <div class="skill-level">
-                <span class="dot filled"></span>
-                <span class="dot filled"></span>
-                <span class="dot filled"></span>
-                <span class="dot filled"></span>
-                <span class="dot filled"></span>
-            </div>
+
+            <h1 class="animate__animated animate__fadeInUp">&lt;Dev_fe00&gt;</h1>
+            <p class="tag-line animate__animated animate__fadeInUp animate__delay-1s">// Um desenvolvedor que acredita na solução digital transformando o Mundo.</p>
         </div>
+
+        <section id="sobre" class="section">
+            <h2 class="section-title fade-in">Sobre</h2>
+            
+            <div class="sobre-container fade-in">
+                <div class="sobre-text">
+                    <p>Desenvolvedor Full Stack apaixonado por criar soluções web e mobile inovadoras.</p>
+                    <p>Minha jornada na programação começou com a curiosidade de entender como a tecnologia pode transformar vidas e negócios.</p>
+                    <p>Estou sempre aprendendo novas tecnologias e aprimorando meus conhecimentos para entregar projetos de alto desempenho. 🚀</p>
+                </div>
+                
+                <div class="profile-container">
+                    <div class="profile-photo">
+                        <img src="img/img.1.jpeg" alt="Sua foto" class="profile-img">
+                    </div>
+                </div>
+            </div>
+
+            <div class="skills-container fade-in">
+                <h3>Habilidades</h3>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <div class="skill-icon html-icon">
+                            <i class="fab fa-html5"></i>
+                        </div>
+                        <p>HTML</p>
+                        <div class="skill-level">
+                            <span class="dot filled"></span>
+                            <span class="dot filled"></span>
+                            <span class="dot filled"></span>
+                            <span class="dot filled"></span>
+                            <span class="dot filled"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-icon css-icon">
+                            <i class="fab fa-css3-alt"></i>
+                        </div>
+                        <p>CSS</p>
+                        <div class="skill-level">
+                            <span class="dot filled"></span>
+                            <span class="dot filled"></span>
+                            <span class="dot filled"></span>
+                            <span class="dot filled"></span>
+                            <span class="dot filled"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-icon js-icon">
+                            <i class="fab fa-js"></i>
+                        </div>
+                        <p>JavaScript</p>
+                        <div class="skill-level">
+                            <span class="dot filled"></span>
+                            <span class="dot filled"></span>
+                            <span class="dot filled"></span>
+                            <span class="dot filled"></span>
+                            <span class="dot filled"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-icon react-icon">
+                            <i class="fab fa-react"></i>
+                        </div>
+                        <p>React & Components</p>
+                        <div class="skill-level">
+                            <span class="dot filled"></span>
+                            <span class="dot filled"></span>
+                            <span class="dot filled"></span>
+                            <span class="dot filled"></span>
+                            <span class="dot filled"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                      <div class="skill-icon typescript-icon">
+                          <i class="fas fa-code"></i> 
+                      </div>
+                      <p>TypeScript</p>
+                      <div class="skill-level">
+                          <span class="dot filled"></span>
+                          <span class="dot filled"></span>
+                          <span class="dot filled"></span>
+                          <span class="dot"></span>
+                          <span class="dot"></span>
+                      </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-icon node-icon">
+                            <i class="fab fa-node-js"></i>
+                        </div>
+                        <p>Node.js</p>
+                        <div class="skill-level">
+                            <span class="dot filled"></span>
+                            <span class="dot filled"></span>
+                            <span class="dot filled"></span>
+                            <span class="dot filled"></span>
+                            <span class="dot filled"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>   
+
+        <section id="projetos" class="section">
+            <h2 class="section-title fade-in">Projetos</h2>
+            
+            <div class="projetos-container fade-in">
+                <div class="carousel-nav">
+                    <button class="carousel-button prev-button">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-button next-button">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                
+                <div class="projetos-grid">
+                    <div class="projetos-track">
+                        <div class="projeto-card" onclick="window.open('https://peregrinosout.com', '_blank')">
+                            <div class="projeto-content">
+                                <img src="img/pere.png" alt="Imagem do Projeto E-commerce" class="projeto-img">
+                                <h3>Projeto Web - Ecommerce</h3>
+                                <p>Loja online com sistema completo de e-commerce para uma marca de vestuário.</p>
+                                <div class="projeto-tags">
+                                    <span class="tag">HTML</span>
+                                    <span class="tag">CSS</span>
+                                    <span class="tag">JavaScript</span>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="projeto-card" onclick="window.open('https://registrotarefas-iycuedooj-devfes-projects.vercel.app', '_blank')">
+                            <div class="projeto-content">
+                                <img src="img/tarefa.PNG" alt="App de Registro de Tarefas" class="projeto-img">
+                                <h3>Projeto App - Registro de Tarefas</h3>
+                                <p>Aplicativo para gerenciamento de tarefas com recursos de priorização e lembretes.</p>
+                                <div class="projeto-tags">
+                                    <span class="tag">React Native</span>
+                                    <span class="tag">Node.js</span>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="projeto-card" onclick="window.open('https://fhtech.vercel.app', '_blank')">
+                            <div class="projeto-content">
+                                <img src="img/fhtech.png" alt="FH Tech Website" class="projeto-img">
+                                <h3>Projeto Web - FH Tech</h3>
+                                <p>Site institucional para empresa de tecnologia com painel administrativo.</p>
+                                <div class="projeto-tags">
+                                    <span class="tag">Next.js</span>
+                                    <span class="tag">Tailwind CSS</span>
+                                    <span class="tag">Firebase</span>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="projeto-card" onclick="window.open('https://github.com/devfe00/FocusQuests', '_blank')">
+                            <div class="projeto-content">
+                                <img src="img/swfit.png" alt="FocusQuests Game" class="projeto-img">
+                                <h3>Projeto Game - FocusQuests</h3>
+                                <p>Game educativo que ajuda a melhorar foco e produtividade através de missões.</p>
+                                <div class="projeto-tags">
+                                    <span class="tag">TypeScript</span>
+                                    <span class="tag">Next.js</span>
+                                    <span class="tag">Tailwind</span>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="projeto-card" onclick="window.open('https://fh-hach-lab.vercel.app/', '_blank')">
+                            <div class="projeto-content">
+                                <img src="img/game.png" alt="Hacker Simulator" class="projeto-img">
+                                <h3>Projeto Game - Hacker Simulator</h3>
+                                <p>Simulador interativo que ensina conceitos básicos de segurança digital.</p>
+                                <div class="projeto-tags">
+                                    <span class="tag">JavaScript</span>
+                                    <span class="tag">HTML Canvas</span>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="projeto-card" onclick="window.open('https://legal-ai-matchmaking-mxsheb1qk-devfes-projects.vercel.app', '_blank')">
+                            <div class="projeto-content">
+                                <img src="img/legal.png" alt="Legal.AI Platform" class="projeto-img">
+                                <h3>Projeto Plataforma - Legal.AI</h3>
+                                <p>Plataforma de IA para auxiliar profissionais de direito em pesquisas jurídicas.</p>
+                                <div class="projeto-tags">
+                                    <span class="tag">Python</span>
+                                    <span class="tag">LLM</span>
+                                    <span class="tag">FastAPI</span>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="projeto-card" onclick="window.open('https://github.com/devfe00/itau-transactions', '_blank')">
+                            <div class="projeto-content">
+                                <img src="img/itau.jpg" alt="FinFlow API" class="projeto-img">
+                                <h3>Projeto API - FinFlow</h3>
+                                <p>API de processamento de transações financeiras com análise de segurança em tempo real.</p>
+                                <div class="projeto-tags">
+                                    <span class="tag">Java</span>
+                                    <span class="tag">Spring Boot</span>
+                                    <span class="tag">API REST</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="carousel-indicators"></div>
+            </div>
+        </section>  
+
+        <section id="contato" class="section">
+            <h2 class="section-title fade-in">Contato</h2>
+            
+            <div class="contato-content fade-in">
+                <p>Interessado em trabalhar juntos ou <br>
+                     com Alguma pergunta?</p>
+                <button class="email-btn" onclick="copyEmail()">
+                    <i class="fas fa-envelope"></i> fellipe.silva25@hotmail.com
+                </button>
+                <p id="email-copied" style="display: none; color: var(--secondary-color); margin-top: 10px;">
+                    email copiado para a área de transferência!
+                </p>
+                
+                <div class="social-icons">
+                    <a href="https://github.com/devfe00" target="_blank" class="social-icon github">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/fellipe-s-ab22b1255/" target="_blank" class="social-icon linkedin">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy;Todos seus Direitos Reservados (2023)</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+
+    <script>
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.querySelector('.loading-overlay').classList.add('fade-out');
+            }, 800);
+        });
+
+        particlesJS('particles-js', {
+            "particles": {
+                "number": {
+                    "value": 80,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#56ccf2"
+                },
+                "shape": {
+                    "type": "circle"
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": true
+                },
+                "size": {
+                    "value": 3,
+                    "random": true
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#56ccf2",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 2,
+                    "direction": "none",
+                    "random": true,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "grab"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 140,
+                        "line_linked": {
+                            "opacity": 0.8
+                        }
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+
+        const header = document.querySelector('header');
+        const scrollBtn = document.querySelector('.scroll-top');
+        let lastScrollY = 0;
+
+        window.addEventListener('scroll', function() {
+            const currentScrollY = window.scrollY;
+            
+            if (currentScrollY > 100) {
+                header.classList.add('visible');
+                
+                if (currentScrollY > 300) {
+                    scrollBtn.classList.add('active');
+                } else {
+                    scrollBtn.classList.remove('active');
+                }
+            } else {
+                header.classList.remove('visible');
+                scrollBtn.classList.remove('active');
+            }
+            
+            document.querySelectorAll('.fade-in').forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight - 100) {
+                    element.classList.add('visible');
+                }
+            });
+            
+            lastScrollY = currentScrollY;
+        });
         
-        <!-- CSS -->
-        <div class="skill-item">
-            <div class="skill-icon css-icon">
-                <i class="fab fa-css3-alt"></i>
-            </div>
-            <p>CSS</p>
-            <div class="skill-level">
-                <span class="dot filled"></span>
-                <span class="dot filled"></span>
-                <span class="dot filled"></span>
-                <span class="dot filled"></span>
-                <span class="dot filled"></span>
-            </div>
-        </div>
+        scrollBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        function copyEmail() {
+            const email = 'fellipe.silva25@hotmail.com';
+            navigator.clipboard.writeText(email).then(() => {
+                const emailMsg = document.getElementById('email-copied');
+                emailMsg.style.display = 'block';
+                setTimeout(() => {
+                    emailMsg.style.display = 'none';
+                }, 2000);
+            });
+        }
         
-        <!-- JavaScript -->
-        <div class="skill-item">
-            <div class="skill-icon js-icon">
-                <i class="fab fa-js"></i>
-            </div>
-            <p>JavaScript</p>
-            <div class="skill-level">
-                <span class="dot filled"></span>
-                <span class="dot filled"></span>
-                <span class="dot filled"></span>
-                <span class="dot filled"></span>
-                <span class="dot filled"></span>
-            </div>
-        </div>
+        //carrossel
+        document.addEventListener('DOMContentLoaded', function() {
+    const track = document.querySelector('.projetos-track');
+    const cards = Array.from(track.querySelectorAll('.projeto-card'));
+    const indicatorsContainer = document.querySelector('.carousel-indicators');
+    const carousel = document.querySelector('.projetos-grid');
+    
+    const prevButton = document.querySelector('.prev-button');
+    const nextButton = document.querySelector('.next-button');
+    if (prevButton) prevButton.style.display = 'none';
+    if (nextButton) nextButton.style.display = 'none';
+    
+    const carouselNav = document.querySelector('.carousel-nav');
+    if (carouselNav) carouselNav.style.display = 'none';
+    
+    const getVisibleCards = () => {
+        if (window.innerWidth < 768) return 1;
+        if (window.innerWidth < 1024) return 2;
+        return 3;
+    };
+    
+    let visibleCards = getVisibleCards();
+    const cardWidth = cards[0].offsetWidth + 20; 
+    
+    const setupAutoScroll = () => {
+        const cloneCount = Math.min(visibleCards * 2, cards.length);
         
-        <!-- React -->
-        <div class="skill-item">
-            <div class="skill-icon react-icon">
-                <i class="fab fa-react"></i>
-            </div>
-            <p>React & Components</p>
-            <div class="skill-level">
-                <span class="dot filled"></span>
-                <span class="dot filled"></span>
-                <span class="dot filled"></span>
-                <span class="dot filled"></span>
-                <span class="dot filled"></span>
-            </div>
-        </div>
+        for (let i = 0; i < cloneCount; i++) {
+            const clone = cards[i].cloneNode(true);
+            track.appendChild(clone);
+        }
         
-        <!-- Habilidades -->
-        <div class="skill-item">
-          <div class="skill-icon typescript-icon">
-              <i class="fas fa-code"></i> 
-          </div>
-          <p>TypeScript</p>
-          <div class="skill-level">
-              <span class="dot filled"></span>
-              <span class="dot filled"></span>
-              <span class="dot filled"></span>
-              <span class="dot"></span>
-              <span class="dot"></span>
-          </div>
-      </div>
-      
+        const totalCards = cards.length + cloneCount;
+        track.style.width = `${totalCards * cardWidth}px`;
         
-        <div class="skill-item">
-            <div class="skill-icon node-icon">
-                <i class="fab fa-node-js"></i>
-            </div>
-            <p>Node.js</p>
-            <div class="skill-level">
-                <span class="dot filled"></span>
-                <span class="dot filled"></span>
-                <span class="dot filled"></span>
-                <span class="dot filled"></span>
-                <span class="dot filled"></span>
-            </div>
-        </div>
-    </div>
-</div>
-</section>   
+        track.style.transition = 'transform 40s linear infinite';
+        
+        const animationDistance = cards.length * cardWidth;
+        track.style.transform = 'translateX(0)';
+        
+        track.style.animation = `scrollCarousel ${10 * (cards.length / 2)}s linear infinite`;
+        
+        const styleSheet = document.createElement('style');
+        styleSheet.textContent = `
+            @keyframes scrollCarousel {
+                0% {
+                    transform: translateX(0);
+                }
+                100% {
+                    transform: translateX(-${animationDistance}px);
+                }
+            }
+        `;
+        document.head.appendChild(styleSheet);
+    };
+    
+    const createIndicators = () => {
+        indicatorsContainer.innerHTML = '';
+    };
+    
+    const initCarousel = () => {
+        visibleCards = getVisibleCards();
+        createIndicators();
+        setupAutoScroll();
+    };
+    
+    initCarousel();
+    
+    window.addEventListener('resize', () => {
+        const newVisibleCards = getVisibleCards();
+        if (newVisibleCards !== visibleCards) {
 
-
-    <!-- Seção de Projetos -->
-    <section id="projetos" class="section">
-      <h2 class="section-title">Projetos</h2>
-      
-      <div class="projetos-grid">
-
-        <div class="projeto-card" onclick="window.location.href='https://peregrinosout.com'">
-              <div class="projeto-content">
-                <img src="img/img2.png" alt="Imagem do Projeto" class="projeto-img">
-                  <h3>Projeto Web - Ecommerce</h3>
-                  <p>Concluído</p>
-                  <div class="projeto-tags">
-                      <span class="tag">HTML</span>
-                      <span class="tag">CSS</span>
-                      <span class="tag">JavaScript</span>
-                  </div>
-              </div>
-          </div>
-          
-          <div class="projeto-card" onclick="window.location.href='https://registrotarefas-iycuedooj-devfes-projects.vercel.app'">
-            <div class="projeto-content">
-                  <h3>Projeto App</h3>
-                  <p>Concluído</p>
-                  <div class="projeto-tags">
-                      <span class="tag">React Native</span>
-                      <span class="tag">Node.js</span>
-                  </div>
-              </div>
-          </div>
-          
-          <div class="projeto-card" onclick="window.location.href='https://fhtech.vercel.app'">
-            <div class="projeto-content">
-                  <h3>FH Tech</h3>
-                  <p>Concluído</p>
-                  <div class="projeto-tags">
-                      <span class="tag">Next.js</span>
-                      <span class="tag">Tailwind CSS</span>
-                      <span class="tag">Firebase</span>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </section>
-
-    <!-- Seção de Contato -->
-    <section id="contato" class="section">
-      <h2 class="section-title">Contato</h2>
-      
-      <div class="contato-content">
-          <p>Entre em contato comigo via email: fellipe.silva25@hotmail.com</p>
-          
-          <div class="social-icons">
-              <a href="https://github.com/devfe00" target="_blank" class="social-icon github">
-                  <i class="fab fa-github"></i>
-              </a>
-              <a href="https://www.linkedin.com/in/fellipe-s-ab22b1255/" target="_blank" class="social-icon linkedin">
-                  <i class="fab fa-linkedin"></i>
-              </a>
-          </div>
-      </div>
-  </section>
-
-  <footer>
-    <p>&copy; Todos seus Direitos Reservados (2025)</p>
-  </footer>
-
-  <!-- Particles.js -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
-  <script src="script.js"></script>
-
+            location.reload();
+        }
+    });
+    
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            track.style.animationPlayState = 'paused';
+        } else {
+            track.style.animationPlayState = 'running';
+        }
+    });
+});
+    </script>
 </body>
 </html>
-
