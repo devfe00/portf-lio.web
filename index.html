@@ -41,11 +41,6 @@
                 scroll-behavior: smooth;
             }
 
-            .container {
-                  width: 100%;
-                  max-width: 1000px;
-                }
-
             .profile-image {
                 position: fixed;
                 top: 20px; 
@@ -384,7 +379,7 @@
                 box-shadow: 0 0 5px var(--secondary-color);
             }
               
-            /* icon cores */
+    
             .html-icon { color: #e44d26; }
             .css-icon { color: #264de4; }
             .js-icon { color: #f7df1e; }
@@ -392,7 +387,7 @@
             .typescript-icon { color: #007acc; }
             .node-icon { color: #68a063; }
             
-            /* CARROSSEL MELHORADO */
+        
             .projetos-container {
                 margin: 0 auto;
                 max-width: 1200px;
@@ -655,10 +650,12 @@
                     min-height: 320px;
                 }
                 
-                .projeto-img {
-                    width: 120px;
-                    height: 120px;
+                .projeto-card {
+                  flex: 1 1 100%;
+                  min-width: 260px;
+                  max-width: 100%;
                 }
+
                 
                 .carousel-button {
                     width: 40px;
@@ -822,6 +819,35 @@
                 opacity: 1;
                 transform: translateY(0);
               }
+
+            @media (max-width: 768px) {
+              .projetos-container {
+                padding: 0 20px;
+              }
+            
+              .carousel-button {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+              }
+            
+              .projetos-grid {
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+              }
+            
+              .projetos-track {
+                gap: 16px;
+                width: max-content;
+              }
+            
+              .projeto-card {
+                flex: 0 0 80vw; /* ocupa 80% da tela */
+                scroll-snap-align: center;
+              }
+}
+
               
         </style>
     </head>
